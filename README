@@ -1,0 +1,49 @@
+** OpenPfb ** 
+
+OpenPfb is an open source PFB file importer, created to solve a specific need.
+It is release under the LGPL License v2.
+
+
+** Installation **
+
+  $ make
+
+then as root:
+
+  # make install
+
+By default, this install OpenPfb in /usr/local directory.
+
+
+** Usage **
+
+In your C++ program:
+
+  #include <OpenPfb.h>
+  
+  [...]
+  openpfb::PfbFile file("myfile.pfb");
+  std::auto_ptr<openpfb::PfbTree> tree = pfbFile.load();
+
+  if (pfbFile.loadFailed())
+  {
+    printf("Failure!");
+    exit(1);
+  }
+  [...]
+  
+In your Makefile, just add -lOpenPfb to the LDFLAGS.
+ 
+
+** Notes **
+
+Do not expect OpenPfb to work with complex performer file, it is just designed to load simple files.
+
+
+** Author **
+
+This module was developped in the CNRS-IRIT Laboratory during RNTL-Lumiere project.
+(c) 2006 Jean-Christophe Hoelt - IRIT
+All right reserved
+
+Jean-Christophe Hoelt <jeko@ios-software.com>
